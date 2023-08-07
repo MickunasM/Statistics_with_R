@@ -2,8 +2,6 @@
 # about the kilograms of food consumed per person per year in each country,
 # and also the carbon footprint of that food category, per person per year
 
-food_consumption <- readRDS('Data/food_consumption.rds')
-
 # We will need dplyr, lets load the tidyverse package
 library(tidyverse)
 
@@ -11,6 +9,9 @@ library(tidyverse)
 
 # Calculate the mean and median of kilograms of food consumed per person 
 # per year for Belgium and USA:
+
+# Load the food_consumption dataset:
+food_consumption <- readRDS('Data/food_consumption.rds')
 
 # Filter for Belgium
 belgium_consumption <- food_consumption %>%
