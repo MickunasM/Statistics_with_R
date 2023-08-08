@@ -134,4 +134,58 @@ wait_times %>%
   theme(plot.title = element_text(hjust = 0.5))
 
 
+# ************************* Binomial Distributions ************************
 
+# This is a probability distribution of the number of successes in a sequence
+# of independent trials e.g. the number of heads in a sequence of coin flips
+# it has a binary outcome e.g. 1 or 0, win or loss, heads or tails.
+
+# We use 'rbinom()' to simulate a binary outcome e.g. the number of times a 
+# coin flip will land on heads
+
+# We can also use 'dbinom()' which simulates the probability of of an outcome
+# e.g. whats the probability of 7 heads?
+
+# We can also use 'pbinom()' - this simulates the probability of successes less
+# than or equal to e.g. whats the probability of 7 or fewer heads?
+# Use 'lower.tail = FALSE' with 'pbinom()' for more than 7 heads.
+
+# Expected value of the binomial distribution is n * p, in the case of the coin
+# flip, the n = number of flips, p = probability of getting heads.
+
+# Set the random seed & simulate a single deal Amir makes with a 30% 
+# probability of sucess
+set.seed(10)
+rbinom(1, 1, 0.3)
+
+# Simulate 1 week of 3 deals
+rbinom(1, 3, 0.3)
+
+# Simulate 52 weeks of 3 deals
+deals <- rbinom(52, 3, 0.3)
+# Calculate mean deals won per week
+mean(deals)
+
+## Calculating binomial probabilities:
+# What's the probability that Amir closes all 3 deals in a week?
+dbinom(3, 3, 0.3)
+
+# What's the probability that Amir closes 1 or fewer deals in a week?
+pbinom(1, 3, 0.3)
+
+# What's the probability that Amir closes more than 1 deal?
+pbinom(1, 3, 0.3, lower.tail = FALSE)
+
+
+## How many sales will be won?
+# Expected number won with 30% win rate
+won_30pct <- 3 * 0.3
+won_30pct
+
+# Expected number won with 25% win rate
+won_25pct <- 3 * 0.25
+won_25pct
+
+# Expected number won with 35% win rate
+won_35pct <- 3 * 0.35
+won_35pct
